@@ -148,10 +148,12 @@
     gap: 1.5rem;
   }
 
+  /* Account cards bleed off the top and both side edges */
   .card--platforms__img {
-    width: 100%;
-    max-width: 20rem;
+    width: calc(100% + 3.5rem);
+    max-width: none;
     height: auto;
+    margin: -1.75rem -1.75rem 0;
   }
 
   /* ---- Consistent schedule ---- */
@@ -160,10 +162,12 @@
     gap: 1.5rem;
   }
 
+  /* Calendar bleeds off both sides and the bottom */
   .card--schedule-consistent__img {
-    width: 100%;
-    max-width: 22rem;
+    width: calc(100% + 3.5rem);
+    max-width: none;
     height: auto;
+    margin: 0 -1.75rem -1.75rem;
   }
 
   /* ---- Schedule to social media ---- */
@@ -192,10 +196,12 @@
     text-align: center;
   }
 
+  /* Follower-growth card bleeds off the left edge */
   .card--grow__img {
-    width: 100%;
-    max-width: 20rem;
+    width: calc(100% + 1.75rem);
+    max-width: none;
     height: auto;
+    margin-left: -1.75rem;
   }
 
   /* ---- Audience growth ---- */
@@ -238,10 +244,11 @@
     gap: 1.5rem;
   }
 
+  /* Chat illustration bleeds off the bottom edge */
   .card--ai__img {
     width: 100%;
-    max-width: 20rem;
     height: auto;
+    margin-bottom: -1.75rem;
   }
 
   /* ---- Desktop bento layout ---- */
@@ -276,9 +283,12 @@
       text-align: left;
     }
 
+    /* Art bleeds off the left and bottom edges next to the heading */
     .card--grow__img {
-      width: 55%;
-      max-width: 22rem;
+      width: 50%;
+      max-width: none;
+      align-self: flex-end;
+      margin: 0 0 -1.75rem -1.75rem;
     }
   }
 </style>
