@@ -148,12 +148,13 @@
     gap: 1.5rem;
   }
 
-  /* Account cards bleed off the top and both side edges */
+  /* Account cards bleed off both side edges only; the top keeps its padding
+     so the cards' drop-shadows are not clipped */
   .card--platforms__img {
     width: calc(100% + 3.5rem);
     max-width: none;
     height: auto;
-    margin: -1.75rem -1.75rem 0;
+    margin-inline: -1.75rem;
   }
 
   /* ---- Consistent schedule ---- */
