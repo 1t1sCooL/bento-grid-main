@@ -78,25 +78,27 @@
 
   /* ---- Shared card styling ---- */
   .card {
+    --pad: 1.25rem;
     display: flex;
     flex-direction: column;
     border-radius: 0.625rem;
-    padding: 1.75rem;
+    padding: var(--pad);
     overflow: hidden;
     /* Let grid/flex tracks shrink below the intrinsic width of their images */
     min-width: 0;
   }
 
   .card img {
-    max-width: 100%;
+    display: block;
+    height: auto;
   }
 
   .card h2 {
     margin: 0;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   em {
@@ -119,13 +121,13 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    gap: 1.25rem;
-    padding: 2.5rem;
+    gap: 1.5rem;
+    padding: 3rem;
   }
 
   .card--social__title {
     margin: 0;
-    font-size: 2.875rem;
+    font-size: 2.75rem;
     font-weight: 500;
     line-height: 1;
     letter-spacing: -0.03em;
@@ -151,10 +153,10 @@
   /* Account cards bleed off both side edges only; the top keeps its padding
      so the cards' drop-shadows are not clipped */
   .card--platforms__img {
-    width: calc(100% + 3.5rem);
+    width: calc(100% + var(--pad) * 2);
     max-width: none;
     height: auto;
-    margin-inline: -1.75rem;
+    margin-inline: calc(var(--pad) * -1);
   }
 
   /* ---- Consistent schedule ---- */
@@ -165,10 +167,10 @@
 
   /* Calendar bleeds off both sides and the bottom */
   .card--schedule-consistent__img {
-    width: calc(100% + 3.5rem);
+    width: calc(100% + var(--pad) * 2);
     max-width: none;
     height: auto;
-    margin: 0 -1.75rem -1.75rem;
+    margin: 0 calc(var(--pad) * -1) calc(var(--pad) * -1);
   }
 
   /* ---- Schedule to social media ---- */
@@ -197,12 +199,16 @@
     text-align: center;
   }
 
+  .card--grow h2 {
+    font-size: 2rem;
+  }
+
   /* Follower-growth card bleeds off the left edge */
   .card--grow__img {
-    width: calc(100% + 1.75rem);
+    width: 15.5rem;
     max-width: none;
     height: auto;
-    margin-left: -1.75rem;
+    margin-left: calc(var(--pad) * -1);
   }
 
   /* ---- Audience growth ---- */
@@ -223,8 +229,9 @@
 
   .card--audience__img {
     width: 100%;
-    max-width: 16rem;
+    max-width: 9.5rem;
     height: auto;
+    align-self: flex-start;
   }
 
   /* ---- Create and schedule content ---- */
@@ -249,7 +256,7 @@
   .card--ai__img {
     width: 100%;
     height: auto;
-    margin-bottom: -1.75rem;
+    margin-bottom: calc(var(--pad) * -1);
   }
 
   /* ---- Desktop bento layout ---- */
@@ -264,6 +271,10 @@
         "ai      audience    grow              grow";
     }
 
+    .card {
+      --pad: 1.75rem;
+    }
+
     .card--create { grid-area: create; }
     .card--social { grid-area: social; }
     .card--platforms { grid-area: platforms; }
@@ -273,8 +284,16 @@
     .card--grow { grid-area: grow; }
     .card--ai { grid-area: ai; }
 
+    .card h2 {
+      font-size: 1.75rem;
+    }
+
+    .card--grow h2 {
+      font-size: 2rem;
+    }
+
     .card--social__title {
-      font-size: 3.375rem;
+      font-size: 3.5rem;
     }
 
     /* On desktop the follower card places art beside the copy */
@@ -284,12 +303,58 @@
       text-align: left;
     }
 
-    /* Art bleeds off the left and bottom edges next to the heading */
+    /* --- Illustrations render at their natural @2x scale and crop within the
+       narrow desktop columns (mobile keeps width:100% to fit the full card) --- */
+
+    /* Account cards: natural 316px, centred, cropped on both sides */
+    .card--platforms__img {
+      width: 19.75rem;
+      max-width: none;
+      margin: 0;
+      align-self: center;
+    }
+
+    /* Calendar: natural 208px, left-aligned, cropped right, bleeds bottom */
+    .card--schedule-consistent__img {
+      width: 13rem;
+      max-width: none;
+      align-self: flex-start;
+      margin: 0 0 calc(var(--pad) * -1);
+    }
+
+    /* Best-time chart: natural 357px, left-aligned, cropped on the right */
+    .card--schedule-social__img {
+      width: 22.3rem;
+      max-width: none;
+      align-self: flex-start;
+      margin: 0;
+    }
+
+    /* Avatars: natural 179px, left-aligned, shown in full */
+    .card--audience__img {
+      width: 11.2rem;
+      max-width: none;
+    }
+
+    /* Create-post art: natural 191px, shown in full */
+    .card--create__img {
+      width: 12rem;
+      max-width: none;
+    }
+
+    /* Chat: natural 220px, bleeds off the bottom */
+    .card--ai__img {
+      width: 13.75rem;
+      max-width: none;
+      margin-bottom: calc(var(--pad) * -1);
+    }
+
+    /* Follower-growth chart: natural 228px, beside the copy, bleeds left+bottom */
     .card--grow__img {
-      width: 50%;
+      width: 14.25rem;
       max-width: none;
       align-self: flex-end;
-      margin: 0 0 -1.75rem -1.75rem;
+      margin: 0 0 calc(var(--pad) * -1) calc(var(--pad) * -1);
     }
   }
 </style>
