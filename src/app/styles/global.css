@@ -49,5 +49,11 @@ body {
     min-height: 100vh;
 
     margin: 0;
-    padding: 4rem 1rem;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 4rem 1rem;
+    }
 }
