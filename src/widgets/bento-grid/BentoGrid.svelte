@@ -95,18 +95,19 @@
 
   .card h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.625rem;
     font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.02em;
+    line-height: 0.935;
+    letter-spacing: -0.025em;
   }
 
   /* The follower, create-post and AI cards use a larger heading tier on mobile */
   .card--grow h2,
   .card--create h2,
   .card--ai h2 {
-    font-size: 1.875rem;
-    line-height: 0.95;
+    font-size: 2rem;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
   }
 
   em {
@@ -138,7 +139,6 @@
     font-size: 2.875rem;
     font-weight: 500;
     line-height: 0.935;
-    letter-spacing: -0.03em;
     /* Narrow measure reproduces the design's "10x Faster" / "with AI" wrap */
     max-width: 16.5rem;
   }
@@ -240,7 +240,7 @@
   h2.card--audience__stat {
     font-size: 2.875rem;
     line-height: 1;
-    letter-spacing: -0.05em;
+    letter-spacing: normal;
     margin-bottom: 0.625rem;
   }
 
@@ -266,7 +266,7 @@
 
   /* Slightly tighter tracking so "Create and schedule" fits one line, as designed */
   .card--create h2 {
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
   }
 
   .card--create__img {
@@ -315,8 +315,8 @@
     }
 
     .card--social__title {
-      font-size: 3.75rem;
-      line-height: 3.625rem;
+      font-size: 3.875rem;
+      line-height: 0.935;
       max-width: none;
       text-wrap: balance;
     }
@@ -370,21 +370,20 @@
     .card h2 {
       font-size: 1.875rem;
       line-height: 0.935;
+      letter-spacing: 0;
     }
 
     .card--create h2,
     .card--ai h2 {
-      font-size: 2.125rem;
-      line-height: 1.1;
-    }
-
-    .card--create h2 {
-      letter-spacing: -0.02em;
+      font-size: 2.25rem;
+      line-height: 2.375rem;
+      letter-spacing: 0;
     }
 
     .card--grow h2 {
-      font-size: 2.375rem;
-      line-height: 1;
+      font-size: 2.5rem;
+      line-height: 0.935;
+      letter-spacing: 0;
       max-width: none;
     }
 
@@ -393,8 +392,8 @@
     }
 
     .card--social__title {
-      font-size: 3.75rem;
-      line-height: 3.625rem;
+      font-size: 3.875rem;
+      line-height: 0.935;
       max-width: none;
     }
 
@@ -419,7 +418,7 @@
     }
 
     h2.card--audience__stat {
-      font-size: 3.75rem;
+      font-size: 3.875rem;
       line-height: 1;
       margin-bottom: 0.75rem;
     }
