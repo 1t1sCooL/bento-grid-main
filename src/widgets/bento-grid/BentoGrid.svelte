@@ -78,7 +78,7 @@
 
   /* ---- Shared card styling ---- */
   .card {
-    --pad: 1.25rem;
+    --pad: 1rem;
     display: flex;
     flex-direction: column;
     border-radius: 0.625rem;
@@ -97,8 +97,16 @@
     margin: 0;
     font-size: 1.5rem;
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1;
     letter-spacing: -0.02em;
+  }
+
+  /* The follower, create-post and AI cards use a larger heading tier on mobile */
+  .card--grow h2,
+  .card--create h2,
+  .card--ai h2 {
+    font-size: 1.875rem;
+    line-height: 0.95;
   }
 
   em {
@@ -122,148 +130,218 @@
     text-align: center;
     justify-content: center;
     gap: 1.5rem;
-    padding: 3rem;
+    padding: 2.5rem 1rem;
   }
 
   .card--social__title {
     margin: 0;
-    font-size: 2.75rem;
+    font-size: 2.875rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 0.935;
     letter-spacing: -0.03em;
+    /* Narrow measure reproduces the design's "10x Faster" / "with AI" wrap */
+    max-width: 16.5rem;
   }
 
   .card--social__stars {
-    width: 12rem;
+    width: 11.5rem;
     max-width: 80%;
     height: auto;
   }
 
   .card--social__reviews {
-    margin: 0;
-    font-size: 1.0625rem;
+    margin: -1rem 0 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
   }
 
   /* ---- Manage multiple platforms ---- */
   .card--platforms {
     background-color: var(--White);
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
-  /* Account cards bleed off both side edges only; the top keeps its padding
-     so the cards' drop-shadows are not clipped */
+  /* Account cards render at their natural size; the right edge may crop */
   .card--platforms__img {
-    width: calc(100% + var(--pad) * 2);
+    width: 316px;
     max-width: none;
     height: auto;
-    margin-inline: calc(var(--pad) * -1);
   }
 
   /* ---- Consistent schedule ---- */
   .card--schedule-consistent {
     background-color: var(--Yellow500);
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
-  /* Calendar bleeds off both sides and the bottom */
+  /* Calendar renders at natural size and bleeds off the bottom edge */
   .card--schedule-consistent__img {
-    width: calc(100% + var(--pad) * 2);
+    width: 13rem;
     max-width: none;
     height: auto;
-    margin: 0 calc(var(--pad) * -1) calc(var(--pad) * -1);
+    margin: 0 0 -2.25rem;
   }
 
   /* ---- Schedule to social media ---- */
   .card--schedule-social {
     background-color: var(--Purple100);
     gap: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
   }
 
   .card--schedule-social__img {
     width: 100%;
     max-width: 20rem;
     height: auto;
+    align-self: center;
   }
 
   .card--schedule-social p {
-    margin: 0;
-    font-size: 1.0625rem;
+    margin: -0.375rem 0 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
   }
 
   /* ---- Grow followers ---- */
   .card--grow {
+    --pad: 1.5rem;
     background-color: var(--Purple500);
     color: var(--White);
-    gap: 1.75rem;
+    gap: 2.5rem;
     align-items: center;
     text-align: center;
   }
 
+  /* Narrow measure forces the three-line wrap from the design */
   .card--grow h2 {
-    font-size: 2rem;
+    max-width: 13rem;
   }
 
-  /* Follower-growth card bleeds off the left edge */
   .card--grow__img {
-    width: 15.5rem;
+    width: 14.25rem;
     max-width: none;
     height: auto;
-    margin-left: calc(var(--pad) * -1);
   }
 
   /* ---- Audience growth ---- */
   .card--audience {
+    --pad: 1.5rem;
     background-color: var(--White);
-    gap: 0.25rem;
+    gap: 0;
   }
 
-  .card--audience__stat {
-    font-size: 3.75rem;
+  /* h2 in the selector so this outranks the shared `.card h2` font size */
+  h2.card--audience__stat {
+    font-size: 2.875rem;
+    line-height: 1;
     letter-spacing: -0.05em;
+    margin-bottom: 0.625rem;
   }
 
   .card--audience__label {
-    margin: 0 0 0.75rem;
-    font-size: 1.0625rem;
+    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.2;
   }
 
   .card--audience__img {
-    width: 100%;
-    max-width: 9.5rem;
+    width: 11.1875rem;
+    max-width: none;
     height: auto;
     align-self: flex-start;
   }
 
   /* ---- Create and schedule content ---- */
   .card--create {
+    --pad: 2rem;
     background-color: var(--Yellow100);
     gap: 1.5rem;
   }
 
+  /* Slightly tighter tracking so "Create and schedule" fits one line, as designed */
+  .card--create h2 {
+    letter-spacing: -0.03em;
+  }
+
   .card--create__img {
-    width: 100%;
-    max-width: 14rem;
+    width: 11.9375rem;
+    max-width: none;
     height: auto;
   }
 
   /* ---- Write content using AI ---- */
   .card--ai {
+    --pad: 1.5rem;
     background-color: var(--Yellow500);
     gap: 1.5rem;
   }
 
-  /* Chat illustration bleeds off the bottom edge */
   .card--ai__img {
-    width: 100%;
+    width: 13.75rem;
+    max-width: none;
     height: auto;
-    margin-bottom: calc(var(--pad) * -1);
+  }
+
+  /* ---- Tablet layout: two balanced columns, mobile-sized card internals ---- */
+  @media (min-width: 768px) and (max-width: 1151.98px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "social           social"
+        "platforms        schedule-consistent"
+        "schedule-social  schedule-social"
+        "grow             ai"
+        "audience         create";
+    }
+
+    .card--create { grid-area: create; }
+    .card--social { grid-area: social; }
+    .card--platforms { grid-area: platforms; }
+    .card--schedule-consistent { grid-area: schedule-consistent; }
+    .card--schedule-social { grid-area: schedule-social; }
+    .card--audience { grid-area: audience; }
+    .card--grow { grid-area: grow; }
+    .card--ai { grid-area: ai; }
+
+    /* The full-width hero can afford desktop-sized type */
+    .card--social {
+      padding: 3rem;
+    }
+
+    .card--social__title {
+      font-size: 3.75rem;
+      line-height: 3.625rem;
+      max-width: none;
+      text-wrap: balance;
+    }
+
+    /* Cards paired with a taller neighbour centre their content */
+    .card--platforms,
+    .card--audience {
+      justify-content: center;
+    }
+
+    /* Calendar sits centred in the wider tablet card */
+    .card--schedule-consistent__img {
+      align-self: center;
+    }
+
+    /* Chat illustration sits on the bottom padding of the stretched card */
+    .card--ai__img {
+      margin-top: auto;
+    }
   }
 
   /* ---- Desktop bento layout ---- */
-  @media (min-width: 768px) {
+  @media (min-width: 1152px) {
     .grid {
       grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: minmax(0, auto);
+      /* Row tracks match the design's 327/58/156/248 grid at 1440; minmax lets
+         them grow on narrower viewports where the columns get tighter */
+      grid-template-rows:
+        minmax(327px, auto) minmax(58px, auto)
+        minmax(156px, auto) minmax(248px, auto);
       grid-template-areas:
         "create  social      social            schedule-social"
         "create  platforms   schedule-consistent  schedule-social"
@@ -272,7 +350,7 @@
     }
 
     .card {
-      --pad: 1.75rem;
+      --pad: 1.5rem;
     }
 
     .card--create { grid-area: create; }
@@ -285,15 +363,70 @@
     .card--ai { grid-area: ai; }
 
     .card h2 {
-      font-size: 1.75rem;
+      font-size: 1.875rem;
+      line-height: 0.935;
+    }
+
+    .card--create h2,
+    .card--ai h2 {
+      font-size: 2.125rem;
+      line-height: 1.1;
+    }
+
+    .card--create h2 {
+      letter-spacing: -0.02em;
     }
 
     .card--grow h2 {
-      font-size: 2rem;
+      font-size: 2.375rem;
+      line-height: 1;
+      max-width: none;
+    }
+
+    .card--social {
+      padding: 3rem;
     }
 
     .card--social__title {
-      font-size: 3.5rem;
+      font-size: 3.75rem;
+      line-height: 3.625rem;
+      max-width: none;
+    }
+
+    .card--platforms {
+      gap: 1.125rem;
+    }
+
+    .card--schedule-consistent {
+      gap: 1rem;
+    }
+
+    .card--schedule-social {
+      padding: 3rem 2rem;
+      gap: 1.75rem;
+      text-align: left;
+    }
+
+    .card--schedule-social p {
+      margin: -0.375rem 0 0;
+      font-size: 1.0625rem;
+      line-height: 1.2;
+    }
+
+    h2.card--audience__stat {
+      font-size: 3.75rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .card--audience__label {
+      margin: 0 0 2.25rem;
+    }
+
+    .card--create {
+      --pad: 2rem;
+      gap: 1.25rem;
+      justify-content: center;
     }
 
     /* On desktop the follower card places art beside the copy */
@@ -301,60 +434,49 @@
       flex-direction: row;
       align-items: center;
       text-align: left;
+      gap: 0.75rem;
     }
 
-    /* --- Illustrations render at their natural @2x scale and crop within the
-       narrow desktop columns (mobile keeps width:100% to fit the full card) --- */
+    /* --- Illustrations render at their natural @2x scale, anchored to the
+       card padding; wider ones crop against the card's right edge --- */
 
-    /* Account cards: natural 316px, centred, cropped on both sides */
+    /* Account cards: natural 316px, left-aligned, cropped on the right */
     .card--platforms__img {
       width: 19.75rem;
       max-width: none;
       margin: 0;
-      align-self: center;
+      align-self: flex-start;
     }
 
-    /* Calendar: natural 208px, left-aligned, cropped right, bleeds bottom */
+    /* Calendar: natural 208px, left-aligned; the margin removes its full
+       height from layout so the row track sets the card height and the
+       calendar clips against the card's bottom edge */
     .card--schedule-consistent__img {
       width: 13rem;
       max-width: none;
       align-self: flex-start;
-      margin: 0 0 calc(var(--pad) * -1);
+      margin: 0 0 -11.3125rem;
     }
 
-    /* Best-time chart: natural 357px, left-aligned, cropped on the right */
+    /* Best-time chart: natural 357.5px, left-aligned, cropped on the right */
     .card--schedule-social__img {
-      width: 22.3rem;
+      width: 357.5px;
       max-width: none;
       align-self: flex-start;
       margin: 0;
     }
 
-    /* Avatars: natural 179px, left-aligned, shown in full */
-    .card--audience__img {
-      width: 11.2rem;
-      max-width: none;
-    }
-
-    /* Create-post art: natural 191px, shown in full */
-    .card--create__img {
-      width: 12rem;
-      max-width: none;
-    }
-
-    /* Chat: natural 220px, bleeds off the bottom */
+    /* Chat: natural 220px, pushed to the card bottom padding */
     .card--ai__img {
-      width: 13.75rem;
-      max-width: none;
-      margin-bottom: calc(var(--pad) * -1);
+      margin-top: auto;
     }
 
-    /* Follower-growth chart: natural 228px, beside the copy, bleeds left+bottom */
+    /* Follower-growth chart: natural 228px, beside the copy at the top padding;
+       the tiny negative margin keeps its 201.07px height from inflating the
+       248px row track */
     .card--grow__img {
-      width: 14.25rem;
-      max-width: none;
-      align-self: flex-end;
-      margin: 0 0 calc(var(--pad) * -1) calc(var(--pad) * -1);
+      align-self: flex-start;
+      margin: 0 0 -0.125rem;
     }
   }
 </style>
