@@ -161,11 +161,16 @@
     gap: 1rem;
   }
 
-  /* Account cards render at their natural size; the right edge may crop */
+  /* Account cards render at their natural size; the right edge may crop.
+     The asset's baked-in drop shadow is cut off flat at the top of the
+     image, so a mask fades those first pixels out instead of showing a
+     hard grey edge on the white card */
   .card--platforms__img {
     width: 316px;
     max-width: none;
     height: auto;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 6px);
+    mask-image: linear-gradient(180deg, transparent, #000 6px);
   }
 
   /* ---- Consistent schedule ---- */
