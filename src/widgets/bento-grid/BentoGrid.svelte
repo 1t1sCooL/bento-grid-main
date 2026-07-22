@@ -1,6 +1,6 @@
 <script lang="ts">
   import fiveStars from "../../shared/assets/images/illustration-five-stars.webp";
-  import multiplePlatforms from "../../shared/assets/images/illustration-multiple-platforms.webp";
+  import multiplePlatforms from "../../shared/assets/images/illustration-multiple-platforms-fixed.webp";
   import consistentSchedule from "../../shared/assets/images/illustration-consistent-schedule.webp";
   import schedulePosts from "../../shared/assets/images/illustration-schedule-posts.webp";
   import growFollowers from "../../shared/assets/images/illustration-grow-followers.webp";
@@ -161,16 +161,16 @@
     gap: 1rem;
   }
 
-  /* Account cards render at their natural size; the right edge may crop.
-     The asset's baked-in drop shadow is cut off flat at the top of the
-     image, so a mask fades those first pixels out instead of showing a
-     hard grey edge on the white card */
+  /* Soft-shadow asset (681×198): badges are 316px wide with transparent air
+     around them (12.5px top, 12/12.5 sides, 26.5px bottom, chips 7px shorter
+     than the old cut asset). Negative margins collapse the layout box back
+     to the badge area, so the geometry matches the design while the shadow
+     paints freely over the card padding. */
   .card--platforms__img {
-    width: 316px;
+    width: 340.5px;
     max-width: none;
     height: auto;
-    -webkit-mask-image: linear-gradient(180deg, transparent, #000 6px);
-    mask-image: linear-gradient(180deg, transparent, #000 6px);
+    margin: -12.5px -12.5px -19.5px -12px;
   }
 
   /* ---- Consistent schedule ---- */
@@ -444,11 +444,11 @@
     /* --- Illustrations render at their natural @2x scale, anchored to the
        card padding; wider ones crop against the card's right edge --- */
 
-    /* Account cards: natural 316px, left-aligned, cropped on the right */
+    /* Account cards: soft-shadow asset, layout box collapsed to the badges */
     .card--platforms__img {
-      width: 19.75rem;
+      width: 340.5px;
       max-width: none;
-      margin: 0;
+      margin: -12.5px -12.5px -19.5px -12px;
       align-self: flex-start;
     }
 
