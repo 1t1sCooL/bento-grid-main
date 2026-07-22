@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Vercel](https://bento-grid-main-gmx00ya73-1t1scools-projects.vercel.app/)
+- Solution URL: [Vercel](https://bento-grid-main-woad.vercel.app/)
 - Live Site URL: [mmalabugin.ru/BentoGrid](https://mmalabugin.ru/BentoGrid)
 
 ## My process
