@@ -8,7 +8,7 @@
 
 <style>
   .footer {
-    margin-top: 2.5rem;
+    margin-block-start: 2.5rem;
     font-size: 0.75rem;
     text-align: center;
     color: var(--Black);

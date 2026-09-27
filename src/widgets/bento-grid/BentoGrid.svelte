@@ -73,7 +73,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     width: 100%;
-    max-width: 1120px;
+    max-width: 70rem;
   }
 
   /* ---- Shared card styling ---- */
@@ -167,10 +167,10 @@
      to the badge area, so the geometry matches the design while the shadow
      paints freely over the card padding. */
   .card--platforms__img {
-    width: 340.5px;
+    width: 21.28125rem;
     max-width: none;
     height: auto;
-    margin: -12.5px -12.5px -19.5px -12px;
+    margin: -0.78125rem -0.78125rem -1.21875rem -0.75rem;
   }
 
   /* ---- Consistent schedule ---- */
@@ -241,7 +241,7 @@
     font-size: 2.875rem;
     line-height: 1;
     letter-spacing: normal;
-    margin-bottom: 0.625rem;
+    margin-block-end: 0.625rem;
   }
 
   .card--audience__label {
@@ -289,7 +289,7 @@
   }
 
   /* ---- Tablet layout: two balanced columns, mobile-sized card internals ---- */
-  @media (min-width: 768px) and (max-width: 1151.98px) {
+  @media (min-width: 48em) and (max-width: 71.99875em) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
@@ -334,19 +334,19 @@
 
     /* Chat illustration sits on the bottom padding of the stretched card */
     .card--ai__img {
-      margin-top: auto;
+      margin-block-start: auto;
     }
   }
 
   /* ---- Desktop bento layout ---- */
-  @media (min-width: 1152px) {
+  @media (min-width: 72em) {
     .grid {
       grid-template-columns: repeat(4, 1fr);
       /* Row tracks match the design's 327/58/156/248 grid at 1440; minmax lets
          them grow on narrower viewports where the columns get tighter */
       grid-template-rows:
-        minmax(327px, auto) minmax(58px, auto)
-        minmax(156px, auto) minmax(248px, auto);
+        minmax(20.4375rem, auto) minmax(3.625rem, auto)
+        minmax(9.75rem, auto) minmax(15.5rem, auto);
       grid-template-areas:
         "create  social      social            schedule-social"
         "create  platforms   schedule-consistent  schedule-social"
@@ -420,7 +420,7 @@
     h2.card--audience__stat {
       font-size: 3.875rem;
       line-height: 1;
-      margin-bottom: 0.75rem;
+      margin-block-end: 0.75rem;
     }
 
     .card--audience__label {
@@ -446,9 +446,9 @@
 
     /* Account cards: soft-shadow asset, layout box collapsed to the badges */
     .card--platforms__img {
-      width: 340.5px;
+      width: 21.28125rem;
       max-width: none;
-      margin: -12.5px -12.5px -19.5px -12px;
+      margin: -0.78125rem -0.78125rem -1.21875rem -0.75rem;
       align-self: flex-start;
     }
 
@@ -464,7 +464,7 @@
 
     /* Best-time chart: natural 357.5px, left-aligned, cropped on the right */
     .card--schedule-social__img {
-      width: 357.5px;
+      width: 22.34375rem;
       max-width: none;
       align-self: flex-start;
       margin: 0;
@@ -472,7 +472,7 @@
 
     /* Chat: natural 220px, pushed to the card bottom padding */
     .card--ai__img {
-      margin-top: auto;
+      margin-block-start: auto;
     }
 
     /* Follower-growth chart: natural 228px, beside the copy at the top padding;
